@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RUCE</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .navbar {
+            background-color: #333;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .navbar a {
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            background-color: #575757;
+        }
+        .navbar img {
+            height: 50px;
+            width: auto;
+            margin-right: 1rem;
+        }
+        .main {
+            padding: 2rem;
+            text-align: center;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: relative;
+        }
+        .slider {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 1rem auto;
+            overflow: hidden;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slides img {
+            width: 100%;
+            flex-shrink: 0;
+        }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            font-size: 1.5rem;
+            border: none;
+        }
+        .prev {
+            left: 10px;
+        }
+        .next {
+            right: 10px;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .slider {
+                max-width: 100%;
+            }
+        }
+        @media (max-width: 576px) {
+            .navbar a {
+                padding: 8px;
+                font-size: 0.9rem;
+            }
+            .navbar img {
+                height: 40px;
+            }
+            .footer {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img src="RUCE LOGO.png" alt="College Logo">
+        <div>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="admissions.html">Admissions</a>
+            <a href="academics.html">Academics</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+    <div class="main">
+        <h1>Welcome to RUCE</h1>
+        <div class="slider">
+            <div class="slides">
+                <img src="COLLEGE PHOTO 2.jpeg" alt="College Photo 1">
+                <img src="COLLEGE PHOTO 3.jpeg" alt="College Photo 2">
+                <img src="COLLEGE PHOTO 1.jpeg" alt="College Photo 3">
+            </div>
+            <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
+            <button class="next" onclick="plusSlides(1)">&#10095;</button>
+        </div>
+    </div>
+    <div class="footer">
+        &copy; 2025 Rayalaseema University College of Engineering. All rights reserved.
+    </div>
+    <script>
+        let slideIndex = 0;
+        showSlides();
+        function plusSlides(n) {
+            slideIndex += n;
+            showSlides();
+        }
+        function showSlides() {
+            const slides = document.querySelectorAll('.slides img');
+            if (slideIndex >= slides.length) { slideIndex = 0; }
+            if (slideIndex < 0) { slideIndex = slides.length - 1; }
+            document.querySelector('.slides').style.transform = `translateX(${-slideIndex * 100}%)`;
+        }
+        setInterval(() => plusSlides(1), 10000);
+    </script>
+</body>
+</html>
